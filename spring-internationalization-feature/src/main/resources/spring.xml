@@ -13,4 +13,8 @@
         </property>
     </bean>
 
+    <bean id="example" class="org.swordess.toy.spring.internationalization.Example">
+        <property name="messages" ref="messageSource" />
+    </bean>
+
 </beans>
