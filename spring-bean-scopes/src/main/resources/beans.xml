@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!-- the default scope is singleton if it is not specified -->
+    <bean id="limit" class="java.lang.Integer" scope="singleton">
+        <constructor-arg value="1024"/>
+    </bean>
+
+    <bean id="fantasy" class="java.lang.Boolean" scope="prototype">
+        <constructor-arg value="false"/>
+    </bean>
+
+    <bean id="data1" class="org.swordess.toy.spring.beanscope.Data">
+        <property name="obsolete" ref="fantasy"/>
+    </bean>
+    <bean id="data2" class="org.swordess.toy.spring.beanscope.Data">
+        <property name="obsolete" ref="fantasy"/>
+    </bean>
+
+    <!--
+        As a rule, use the prototype scope for all stateful beans and the
+        singleton scope for stateless beans.
+
+        In contrast to the other scopes, Spring does not manage the complete
+        lifecycle of a prototype bean: the container instantiates, configures,
+        and otherwise assembles a prototype object, and hands it to the
+        client, with no further record of that prototype instance.
+
+        In some respects, the Spring container’s role in regard to a
+        prototype-scoped bean is a replacement for the Java new operator.
+    -->
+
+</beans>

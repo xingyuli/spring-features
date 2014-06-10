@@ -13,6 +13,7 @@
     </properties>
 
     <modules>
+        <module>spring-bean-scopes</module>
         <module>spring-internationalization-feature</module>
     </modules>
 
