@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!--
+        Lookup method injection is the ability of the container to override
+        methods on container managed beans, to return the lookup result for
+        another named bean in the container. The lookup typically involves a
+        prototype bean as in the scenario described in the preceding section.
+
+        NOTE:
+        1. For this dynamic subclassing to work, the class that the Spring
+           container will subclass cannot be final, and the method to be
+           overridden cannot be final either.
+        2. As of Spring 3.2 it is no longer necessary to add CGLIB to your
+           classpath, because CGLIB classes are repackaged under
+           org.springframework and distributed within the spring-core JAR.
+           This is done both for convenience as well as to avoid potential
+           conflicts with other projects that use differing versions of CGLIB.
+
+        The method to be injected requires a signature of the following form:
+
+            <public|protected> [abstract] <return-type>
+                theMethodName(no-arguments);
+
+        If the method is abstract, the dynamically-generated subclass
+        implements the method. Otherwise, the dynamically-generated subclass
+        overrides the concrete method defined in the original class.
+    -->
+    <bean id="command" class="org.swordess.toy.spring.di.mi.Command" scope="prototype"/>
+    <bean id="commandManager" class="org.swordess.toy.spring.di.mi.CommandManager">
+        <lookup-method name="createCommand" bean="command"/>
+    </bean>
+
+</beans>

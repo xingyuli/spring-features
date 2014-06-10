@@ -11,7 +11,7 @@ import static junit.framework.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:beans.xml")
-public class Demo {
+public class DemonstrateDependencyInjection {
 
     @Autowired
     private ApplicationContext applicationContext;
