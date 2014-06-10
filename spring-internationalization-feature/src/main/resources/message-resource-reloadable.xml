@@ -11,37 +11,20 @@
     *************************************************
     -->
 
-    <!-- ResourceBundleMessageSource is based on standard JDK ResourceBundle -->
-    <!--
-    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename" value="message" />
-    </bean>
-    <bean id="example" class="org.swordess.toy.spring.internationalization.Example">
-        <property name="messages" ref="messageSource" />
-    </bean>
-    <bean id="demonstrateBasicResource" class="java.lang.Boolean">
-        <constructor-arg value="true"/>
-    </bean>
-    -->
-
     <!--
         ReloadableResourceBundleMessageSource is more flexible, and allows for reading files
         from any Spring resource location (not just from the classpath) and supports hot
         reloading of bundle property files (while efficiently caching them in between).
-
-        NOTE: ReloadableResourceBundleMessageSource do not reload classpath resources!
     -->
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="cacheSeconds" value="5"/>
         <property name="basenames">
             <list>
                 <value>classpath:message</value>
+                <!-- NOTE: ReloadableResourceBundleMessageSource do not reload classpath resources! -->
                 <value>i18n/reloadable</value>
             </list>
         </property>
-    </bean>
-    <bean id="demonstrateReloadableResource" class="java.lang.Boolean">
-        <constructor-arg value="true"/>
     </bean>
 
 </beans>

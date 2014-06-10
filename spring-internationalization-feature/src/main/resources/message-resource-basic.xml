@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!--
+    *************************************************
+
+        the bean must have the name messageSource
+
+    *************************************************
+    -->
+
+    <!-- ResourceBundleMessageSource is based on standard JDK ResourceBundle -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="message" />
+    </bean>
+    <bean id="example" class="org.swordess.toy.spring.internationalization.basic.Example">
+        <property name="messages" ref="messageSource" />
+    </bean>
+
+</beans>
