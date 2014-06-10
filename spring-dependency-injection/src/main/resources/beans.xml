@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!-- Straight values (primitives, Strings, and so on) -->
+    <bean id="anonymousPlayer" class="org.swordess.toy.spring.di.Player">
+        <property name="name" value="Anonymous"/>
+        <property name="gender" value="Male"/>
+        <property name="age" value="18"/>
+    </bean>
+
+    <!-- References to other beans (collaborators) -->
+    <!--
+        Specifying the target bean through the bean attribute of the <ref/> tag
+        is the most general form, and allows creation of a reference to any
+        bean in the same container or parent container, regardless of whether
+        it is in the same XML file.
+    -->
+    <bean id="godName" class="java.lang.String">
+        <constructor-arg value="God"/>
+    </bean>
+    <bean id="godGender" class="java.lang.String">
+        <constructor-arg value="Unknown"/>
+    </bean>
+    <bean id="godAge" class="java.lang.Integer">
+        <constructor-arg value="1024"/>
+    </bean>
+    <bean id="godPlayer" class="org.swordess.toy.spring.di.Player">
+        <property name="name" ref="godName"/>
+        <property name="gender" ref="godGender"/>
+        <property name="age" ref="godAge"/>
+    </bean>
+
+    <!-- Collections -->
+    <bean id="game" class="org.swordess.toy.spring.di.Game" factory-method="getInstance">
+        <property name="configuration">
+            <props>
+                <prop key="round.limit">5</prop>
+                <prop key="time.limit">3600</prop>
+            </props>
+        </property>
+        <property name="days">
+            <list>
+                <value>Sunday</value>
+                <value>Monday</value>
+                <value>Tuesday</value>
+                <value>Wednesday</value>
+                <value>Thursday</value>
+                <value>Friday</value>
+                <value>Saturday</value>
+            </list>
+        </property>
+        <property name="steps">
+            <set>
+                <value>1</value>
+                <value>3</value>
+                <value>5</value>
+            </set>
+        </property>
+        <property name="scores">
+            <map>
+                <entry key="Anonymous" value="68"/>
+                <entry key-ref="godName" value="90"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>
