@@ -8,6 +8,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotSame;
+import static junit.framework.Assert.assertSame;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:beans.xml")
 public class Demo {
@@ -19,23 +23,23 @@ public class Demo {
     public void demonstrateSingletonScope() {
         Integer limit1 = (Integer) applicationContext.getBean("limit");
         Integer limit2 = (Integer) applicationContext.getBean("limit");
-        Assert.assertSame(limit1, limit2);
+        assertSame(limit1, limit2);
     }
 
     @Test
     public void demonstratePrototypeScope() {
         Boolean fantasy1 = (Boolean) applicationContext.getBean("fantasy");
         Boolean fantasy2 = (Boolean) applicationContext.getBean("fantasy");
-        Assert.assertEquals(fantasy1, fantasy2);
-        Assert.assertNotSame(fantasy1, fantasy2);
+        assertEquals(fantasy1, fantasy2);
+        assertNotSame(fantasy1, fantasy2);
     }
 
     @Test
     public void demonstrateInjectPrototypeScopedBeanIntoAnotherBean() {
         Data data1 = (Data) applicationContext.getBean("data1");
         Data data2 = (Data) applicationContext.getBean("data2");
-        Assert.assertEquals(data1.isObsolete(), data2.isObsolete());
-        Assert.assertNotSame(data1.isObsolete(), data2.isObsolete());
+        assertEquals(data1.isObsolete(), data2.isObsolete());
+        assertNotSame(data1.isObsolete(), data2.isObsolete());
     }
 
 }
