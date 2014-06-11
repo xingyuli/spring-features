@@ -15,9 +15,9 @@
     <modules>
         <module>spring-bean-scopes</module>
         <module>spring-dependency-injection</module>
-        <module>spring-lifecycle-callbacks-feature</module>
+        <module>spring-lifecycle-callbacks</module>
         <module>spring-bean-definition-inheritance</module>
-        <module>spring-internationalization-feature</module>
+        <module>spring-internationalization</module>
     </modules>
 
     <dependencies>
