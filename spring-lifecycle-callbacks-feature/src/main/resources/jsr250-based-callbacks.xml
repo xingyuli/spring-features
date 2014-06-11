@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!--
+        It is recommended that you do not use the InitializingBean and
+        Disposable interface because it unnecessarily couples the code to
+        Spring.
+
+        Alternatively, use the @PostConstruct and @PreDestroy annotation or
+        specify a POJO initialization method and destruction method as
+        xml-based-callbacks.xml do.
+    -->
+    <bean id="accessor" class="org.swordess.toy.spring.lifecyclecallback.jsr250based.Accessor"/>
+
+    <!--
+        Three options for controlling bean lifecycle behavior:
+        1. InitializingBean and DisposableBean callback interfaces
+        2. custom init() and destroy() methods
+        3. @PostConstruct and @PreDestroy annotations
+
+        NOTE:
+        If multiple lifecycle mechanisms are configured for a bean, and each
+        mechanism is configured with a different method name, then each
+        configured method is executed in the order listed below.
+
+            - Methods annotated with @PostConstruct
+            - afterPropertiesSet() as defined by the InitializingBean callback
+            - a custom configured init() method
+
+            - Methods annotated with @PreDestroy
+            - destroy() as defined by the DisposableBean callback
+            - a custom configured destroy() method
+
+        However, if the same method is configured - for example, init() for an
+        initialization method - for more than one of these lifecycle
+        mechanisms, that method is executed once.
+    -->
+
+</beans>

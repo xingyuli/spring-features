@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!--
+        If you don't want to use the JSR-250 annotations but you are still
+        looking to remove coupling, consider the use of init-method and
+        destroy-method object definition metadata.
+    -->
+    <bean id="accessor" class="org.swordess.toy.spring.lifecyclecallback.xmlbased.Accessor"
+          init-method="init" destroy-method="destroy"/>
+
+</beans>
