@@ -63,13 +63,11 @@ public class DemonstrateAutowiredAnnotation {
         }
 
         for (Map.Entry<String, Vehicle> entry : usingAutowiredOnField.getVehiclesMap().entrySet()) {
-            System.out.println(entry);
             assertTrue(expectedBrands.contains(entry.getValue().getBrand()));
         }
 
         Sequence lastSequence = null;
         for (Sequence sequence : usingAutowiredOnField.getSequences()) {
-            System.out.println(sequence);
             if (lastSequence != null) {
                 assertTrue(lastSequence.getValue() < sequence.getValue());
             }
