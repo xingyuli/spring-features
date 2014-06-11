@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+    ***************************************************************************
+
+        Spring 2.5 also added support for JSR-250 annotations such as
+        @PostConstruct, and @PreDestroy.
+
+        Spring 3.0 added support for JSR-330 (Dependency Injection for Java)
+        annotations contained in the javax.inject package such as @Inject and
+        @Named.
+
+        NOTE:
+        Annotation injection is performed before XML injection, thus the
+        latter configuration will override the former for properties wired
+        through both approaches.
+
+    ***************************************************************************
+    -->
+
+    <!--
+        Are annotations better than XML for configuring Spring?
+
+        The introduction of annotation-based configurations raised the question
+        of whether this approach is better than XML. The short answer is it
+        depends. The long answer is that each approach has its pros and cons,
+        and usually it is up to the developer to decide which strategy suits
+        them better. Due to the way they are defined, annotations provide a lot
+        of context in their declaration, leading to shorter and more concise
+        configuration. However, XML excels at wiring up components without
+        touching their source code or recompiling them. Some developers prefer
+        having the wiring close to the source while others argue that annotated
+        classes are no longer POJOs and, furthermore, that the configuration
+        becomes decentralized and harder to control.
+    -->
+
+    <!--
+        The implicitly registered post-processors include:
+            AutowiredAnnotationBeanPostProcessor
+            CommonAnnotationBeanPostProcessor
+            PersistenceAnnotationBeanPostProcessor
+            RequiredAnnotationBeanPostProcessor
+    -->
+    <context:annotation-config/>
+
+    <bean id="magicString" class="java.lang.String">
+        <constructor-arg value="I'm the Magic String!"/>
+    </bean>
+    <bean id="usingAutowiredOnSetterMethod"
+          class="org.swordess.toy.spring.annotationbased.autowired.AutowiredAnnotationOnSetterMethod"/>
+
+
+    <bean id="magicNumber" class="java.lang.Integer">
+        <constructor-arg value="1024"/>
+    </bean>
+    <bean id="usingAutowiredOnArbitraryMethod"
+          class="org.swordess.toy.spring.annotationbased.autowired.AutowiredAnnotationOnArbitraryMethod"/>
+
+
+    <bean id="magicConstructorArg" class="java.lang.String">
+        <constructor-arg value="I was born in the constructor."/>
+    </bean>
+    <bean id="usingAutowiredOnConstructor"
+          class="org.swordess.toy.spring.annotationbased.autowired.AutowiredAnnotationOnConstructor"/>
+
+
+    <bean id="magicField" class="java.lang.String">
+        <constructor-arg value="I was born in the field."/>
+    </bean>
+    <bean id="vehicleA" class="org.swordess.toy.spring.annotationbased.autowired.Vehicle">
+        <property name="brand" value="Volvo"/>
+    </bean>
+    <bean id="vehicleB" class="org.swordess.toy.spring.annotationbased.autowired.Vehicle">
+        <property name="brand" value="Audi"/>
+    </bean>
+    <bean id="vehicleC" class="org.swordess.toy.spring.annotationbased.autowired.Vehicle">
+        <property name="brand" value="Cadillac"/>
+    </bean>
+    <bean id="step3" class="org.swordess.toy.spring.annotationbased.autowired.Sequence">
+        <property name="value" value="3"/>
+    </bean>
+    <bean id="step1" class="org.swordess.toy.spring.annotationbased.autowired.Sequence">
+        <property name="value" value="1"/>
+    </bean>
+    <bean id="step2" class="org.swordess.toy.spring.annotationbased.autowired.Sequence">
+        <property name="value" value="2"/>
+    </bean>
+    <bean id="usingAutowiredOnField"
+          class="org.swordess.toy.spring.annotationbased.autowired.AutowiredAnnotationOnField"/>
+
+</beans>

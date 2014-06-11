@@ -17,6 +17,7 @@
         <module>spring-dependency-injection</module>
         <module>spring-lifecycle-callbacks</module>
         <module>spring-bean-definition-inheritance</module>
+        <module>spring-annotation-based-configuration</module>
         <module>spring-internationalization</module>
     </modules>
 
