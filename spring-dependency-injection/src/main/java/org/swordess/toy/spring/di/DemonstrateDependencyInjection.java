@@ -19,17 +19,17 @@ public class DemonstrateDependencyInjection {
     @Test
     public void demonstrateInjectPrimitives() {
         Player anonymous = (Player) applicationContext.getBean("anonymousPlayer");
-        assertEquals(anonymous.getName(), "Anonymous");
-        assertEquals(anonymous.getGender(), "Male");
-        assertEquals(anonymous.getAge(), 18);
+        assertEquals("Anonymous", anonymous.getName());
+        assertEquals("Male", anonymous.getGender());
+        assertEquals(18, anonymous.getAge());
     }
 
     @Test
     public void demonstrateInjectBeansByRef() {
         Player god = (Player) applicationContext.getBean("godPlayer");
-        assertEquals(god.getName(), "God");
-        assertEquals(god.getGender(), "Unknown");
-        assertEquals(god.getAge(), 1024);
+        assertEquals("God", god.getName());
+        assertEquals("Unknown", god.getGender());
+        assertEquals(1024, god.getAge());
     }
 
     @Test
