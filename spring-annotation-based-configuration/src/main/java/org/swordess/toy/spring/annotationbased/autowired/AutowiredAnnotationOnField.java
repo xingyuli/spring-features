@@ -1,6 +1,8 @@
 package org.swordess.toy.spring.annotationbased.autowired;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.swordess.toy.spring.annotationbased.model.Sequence;
+import org.swordess.toy.spring.annotationbased.model.Vehicle;
 
 import java.util.List;
 import java.util.Map;

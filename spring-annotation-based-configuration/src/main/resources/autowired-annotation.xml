@@ -72,22 +72,22 @@
     <bean id="magicField" class="java.lang.String">
         <constructor-arg value="I was born in the field."/>
     </bean>
-    <bean id="vehicleA" class="org.swordess.toy.spring.annotationbased.autowired.Vehicle">
+    <bean id="vehicleA" class="org.swordess.toy.spring.annotationbased.model.Vehicle">
         <property name="brand" value="Volvo"/>
     </bean>
-    <bean id="vehicleB" class="org.swordess.toy.spring.annotationbased.autowired.Vehicle">
+    <bean id="vehicleB" class="org.swordess.toy.spring.annotationbased.model.Vehicle">
         <property name="brand" value="Audi"/>
     </bean>
-    <bean id="vehicleC" class="org.swordess.toy.spring.annotationbased.autowired.Vehicle">
+    <bean id="vehicleC" class="org.swordess.toy.spring.annotationbased.model.Vehicle">
         <property name="brand" value="Cadillac"/>
     </bean>
-    <bean id="step3" class="org.swordess.toy.spring.annotationbased.autowired.Sequence">
+    <bean id="step3" class="org.swordess.toy.spring.annotationbased.model.Sequence">
         <property name="value" value="3"/>
     </bean>
-    <bean id="step1" class="org.swordess.toy.spring.annotationbased.autowired.Sequence">
+    <bean id="step1" class="org.swordess.toy.spring.annotationbased.model.Sequence">
         <property name="value" value="1"/>
     </bean>
-    <bean id="step2" class="org.swordess.toy.spring.annotationbased.autowired.Sequence">
+    <bean id="step2" class="org.swordess.toy.spring.annotationbased.model.Sequence">
         <property name="value" value="2"/>
     </bean>
     <bean id="usingAutowiredOnField"

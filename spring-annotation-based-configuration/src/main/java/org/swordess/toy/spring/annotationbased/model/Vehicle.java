@@ -1,4 +1,4 @@
-package org.swordess.toy.spring.annotationbased.autowired;
+package org.swordess.toy.spring.annotationbased.model;
 
 public class Vehicle {
 

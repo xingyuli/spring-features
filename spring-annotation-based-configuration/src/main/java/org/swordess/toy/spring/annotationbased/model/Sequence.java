@@ -1,4 +1,4 @@
-package org.swordess.toy.spring.annotationbased.autowired;
+package org.swordess.toy.spring.annotationbased.model;
 
 import org.springframework.core.Ordered;
 

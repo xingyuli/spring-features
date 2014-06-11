@@ -1,11 +1,12 @@
 package org.swordess.toy.spring.annotationbased.autowired;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.swordess.toy.spring.annotationbased.model.Sequence;
+import org.swordess.toy.spring.annotationbased.model.Vehicle;
 
 import java.util.ArrayList;
 import java.util.Collections;
