@@ -4,6 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
     <!--
+    ********************************************************
+
+        Spring 2.5 added support for JSR-250 annotations
+
+    ********************************************************
+    -->
+
+    <!--
         It is recommended that you do not use the InitializingBean and
         Disposable interface because it unnecessarily couples the code to
         Spring.
