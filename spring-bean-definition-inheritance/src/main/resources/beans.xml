@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!--
+        If the parent definition does not specify class, explicitly marking the
+        parent bean definition as abstract is required.
+
+        When a definition is abstract like this, it is usable only as a pure
+        template bean definition that serves as a parent for child definitions.
+
+        Trying to use such an abstract parent bean on its own, by referring to
+        it as a ref property of another bean or doing an explicitly getBean()
+        call with the parent bean id, returns an error.
+    -->
+    <bean id="commonConfig" abstract="true">
+        <property name="packageName" value="INTERNAL"/>
+        <property name="version" value="1.0.0"/>
+        <property name="releaseDate" value="20200101"/>
+    </bean>
+
+    <!--
+        A child bean definition uses the bean class from the parent definition
+        if none is specified, but can also override it. In the later case, the
+        child bean class must be compatible with the parent, that is, it must
+        accept the parent's property values.
+
+        A child bean definition inherits constructor argument values, property
+        values, and method overrides from the parent, with the option to add
+        new values. Any initialization method, destroy method, and/or static
+        factory method settings that you specify will override the
+        corresponding parent settings.
+    -->
+    <bean id="tutorial" class="org.swordess.toy.spring.beaninheritance.Tutorial"
+          parent="commonConfig">
+        <property name="packageName" value="Tutorial"/>
+        <!-- the version and releaseDate property will be inherited from parent -->
+    </bean>
+
+</beans>
