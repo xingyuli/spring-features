@@ -2,21 +2,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>org.swordess.toy</groupId>
-        <artifactId>spring-features</artifactId>
+        <groupId>org.swordess.toy.spring-features</groupId>
+        <artifactId>ioc-container</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>spring-internationalization-feature</artifactId>
+    <groupId>org.swordess.toy.spring-features.ioc-container</groupId>
+    <artifactId>bean-scopes</artifactId>
     <packaging>jar</packaging>
+    <name>Spring IOC Container Bean Scopes</name>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

@@ -6,6 +6,7 @@
 	<artifactId>spring-features</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
+    <name>Spring Features</name>
 
     <properties>
         <spring.version>4.0.5.RELEASE</spring.version>
@@ -13,12 +14,7 @@
     </properties>
 
     <modules>
-        <module>spring-bean-scopes</module>
-        <module>spring-dependency-injection</module>
-        <module>spring-lifecycle-callbacks</module>
-        <module>spring-bean-definition-inheritance</module>
-        <module>spring-annotation-based-configuration</module>
-        <module>spring-internationalization</module>
+        <module>ioc-container</module>
     </modules>
 
     <dependencies>
