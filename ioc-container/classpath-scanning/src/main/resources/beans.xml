@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+    ***************************************************************************
+
+        Automatically detecting classes and registering bean definitions
+
+    ***************************************************************************
+    -->
+
+    <!--
+        To autodetect these classes and register the corresponding beans, you
+        need to include the following element in XML, where the base-package
+        element is a common parent package for the classes. Alternatively,
+        you can specify a common-separated list that includes the parent
+        package of all the classes.
+
+        Note: This tag implies the effects of the 'annotation-config' tag.
+    -->
+    <context:component-scan base-package="org.swordess.toy.spring.cpscanning" />
+
+</beans>

@@ -11,9 +11,9 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.swordess.toy.spring-features.ioc-container</groupId>
-    <artifactId>bean-definition-inheritance</artifactId>
+    <artifactId>classpath-scanning</artifactId>
     <packaging>jar</packaging>
-    <name>Spring IOC Container Bean Definition Inheritance</name>
+    <name>Spring IOC Container Classpath Scanning</name>
 
     <dependencies>
         <dependency>
